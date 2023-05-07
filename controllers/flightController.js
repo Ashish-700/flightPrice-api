@@ -1,6 +1,14 @@
 const Flights = require("../models/flightModel");
+const path = require("path");
 
-const getFlights = async (req, res) => {
+//controller1
+const getIndexPage = (req, res) => {
+  const parentDirectory = path.dirname(__dirname);
+  res.sendFile(parentDirectory + "/pages/indexPage.html");
+};
+
+//controller2
+const getFlightPrices = async (req, res) => {
   const querySource = req.query.source || req.query.Source;
   const queryDestination = req.query.destination || req.query.Destination;
   const queryDate = req.query.date || req.query.Date;
@@ -17,4 +25,4 @@ const getFlights = async (req, res) => {
   }
 };
 
-module.exports = getFlights;
+module.exports = { getFlightPrices, getIndexPage };

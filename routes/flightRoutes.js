@@ -1,8 +1,16 @@
 const express = require("express");
-const getFlights = require("../controllers/flightController");
+const {
+  getFlightPrices,
+  getIndexPage,
+} = require("../controllers/flightController");
 
+//init route
 const router = express.Router();
 
-router.get("/", getFlights);
+//getting index page
+router.get("/", getIndexPage);
+
+//getting flight prices
+router.get("/flight-prices", getFlightPrices);
 
 module.exports = router;
