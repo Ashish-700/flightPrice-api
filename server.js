@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use("/api/flight-price", flightRouter);
+app.use("/flights", flightRouter);
 
 //connect to db and listning
 mongoose
